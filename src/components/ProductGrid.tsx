@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     paddingHorizontal: 8,
+    rowGap: 16,
     rowGap: 18,
   },
   categoryItem: {
@@ -45,6 +46,9 @@ const styles = StyleSheet.create({
   },
   categoryTitle: {
     marginTop: 8,
+    fontSize: 15,
+    lineHeight: 20,
+    minHeight: 40,
     fontSize: 16,
     lineHeight: 21,
     minHeight: 42,
@@ -56,6 +60,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     paddingHorizontal: 12,
+    columnGap: 10,
+    rowGap: 12,
+  },
+  bestCard: {
+    width: '31.6%',
     gap: 12,
   },
   bestCard: {

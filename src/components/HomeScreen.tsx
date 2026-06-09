@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import React from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import type { HomeData, HomeSection } from '@/types/home';
@@ -30,6 +31,33 @@ const Section = ({ section }: { section: HomeSection }) => {
   );
 };
 
+export const HomeScreen = ({ data }: { data: HomeData }) => {
+  const [stuck, setStuck] = useState(false);
+  const placeholder = stuck ? data.search.stickyPlaceholder : data.search.defaultPlaceholder;
+
+  return (
+    <SafeAreaView style={styles.safe}>
+      <View style={styles.screen}>
+        <ScrollView
+          stickyHeaderIndices={[1]}
+          showsVerticalScrollIndicator={false}
+          scrollEventThrottle={16}
+          onScroll={(event: { nativeEvent: { contentOffset: { y: number } } }) => {
+            const nextStuck = event.nativeEvent.contentOffset.y > 104;
+            setStuck(nextStuck);
+          }}
+          contentContainerStyle={styles.content}
+        >
+          <HomeHeader headline={data.delivery.headline} location={data.delivery.location} availability={data.delivery.availability} />
+          <DeliverySection stuck={stuck} placeholder={placeholder} tabs={data.tabs} />
+          <HeroBanner banner={data.heroBanner} />
+          {data.sections.map((section) => <Section key={section.id} section={section} />)}
+        </ScrollView>
+        <BottomNavigation items={data.bottomNavigation} />
+      </View>
+    </SafeAreaView>
+  );
+};
 export const HomeScreen = ({ data }: { data: HomeData }) => (
   <SafeAreaView style={styles.safe}>
     <View style={styles.screen}>

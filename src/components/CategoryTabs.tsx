@@ -4,6 +4,25 @@ import type { CategoryTab } from '@/types/home';
 import { colors } from '@/theme/colors';
 import { Icon } from './Icon';
 
+interface CategoryTabsProps {
+  tabs: CategoryTab[];
+  tone?: 'light' | 'dark';
+}
+
+export const CategoryTabs = ({ tabs, tone = 'dark' }: CategoryTabsProps) => {
+  const color = tone === 'light' ? colors.white : colors.text;
+  return (
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.content}>
+      {tabs.map((tab) => (
+        <View key={tab.id} style={styles.tab}>
+          <Icon name={tab.icon} size={34} color={color} filled={tab.active} />
+          <Text style={[styles.label, { color }, tab.active && styles.activeLabel]}>{tab.label}</Text>
+          {tab.active ? <View style={[styles.indicator, { backgroundColor: color }]} /> : null}
+        </View>
+      ))}
+    </ScrollView>
+  );
+};
 export const CategoryTabs = ({ tabs }: { tabs: CategoryTab[] }) => (
   <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.content}>
     {tabs.map((tab) => (

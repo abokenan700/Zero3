@@ -218,6 +218,11 @@ export const homeData: HomeData = {
       id: 'frozen-food',
       type: 'product-carousel',
       title: 'Instant & Frozen Food',
+      products: [
+        product('maggi', 'Maggi 2-Minute Masala Noodles', '70 g', '₹14', 'instant'),
+        product('mccain-fries', 'McCain French Fries', '420 g', '₹120', 'instant'),
+        product('kissan-spread', 'Kissan Fresh Tomato Ketchup', '450 g', '₹105', 'sauces'),
+      ],
       products: [],
     },
   ],

@@ -1,6 +1,7 @@
 declare module 'react' {
   export type ReactNode = unknown;
   export function createElement(type: unknown, props?: unknown, ...children: unknown[]): unknown;
+  export function useState<T>(initial: T): [T, (next: T) => void];
   const React: { createElement: typeof createElement };
   export default React;
 }

@@ -8,6 +8,9 @@ export const ProductCard = ({ product }: { product: Product }) => (
   <View style={styles.card}>
     <View style={styles.imageWrap}>
       <ProductVisual asset={product.asset} size="product" />
+      <View style={styles.heart}><Text style={styles.heartText}>♡</Text></View>
+    </View>
+    <View style={styles.timerPill}><Text style={styles.timerText}>▣ {product.deliveryTime}</Text></View>
       <Text style={styles.heart}>♡</Text>
     </View>
     <Text style={styles.timer}>▮ {product.deliveryTime}</Text>
@@ -25,15 +28,42 @@ export const ProductCard = ({ product }: { product: Product }) => (
 
 const styles = StyleSheet.create({
   card: {
+    width: 122,
     width: 116,
     marginRight: 10,
   },
   imageWrap: {
     position: 'relative',
+    backgroundColor: '#F7F8FB',
+    borderRadius: 12,
   },
   heart: {
     position: 'absolute',
     right: 7,
+    top: 6,
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    backgroundColor: 'rgba(255,255,255,0.86)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  heartText: {
+    color: '#AEB3BE',
+    fontSize: 13,
+    fontWeight: '900',
+    lineHeight: 15,
+  },
+  timerPill: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#F2F4F6',
+    borderRadius: 5,
+    paddingHorizontal: 4,
+    paddingVertical: 2,
+    marginTop: 6,
+  },
+  timerText: {
+    fontSize: 8,
     top: 5,
     color: '#B8BBC5',
     fontSize: 15,
@@ -47,6 +77,7 @@ const styles = StyleSheet.create({
   },
   name: {
     minHeight: 34,
+    marginTop: 4,
     marginTop: 3,
     fontSize: 11,
     lineHeight: 14,

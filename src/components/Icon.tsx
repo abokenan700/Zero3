@@ -34,6 +34,9 @@ export const Icon = ({ name, size = 28, color = colors.text, filled = false }: I
   if (name === 'pharmacy') {
     return <Svg width={size} height={size} viewBox="0 0 32 32"><Rect x="6" y="10" width="12" height="17" rx="2" {...common}/><Path d="M9 10V6h6v4M12 15v8M8 19h8" {...common}/><Rect x="21" y="15" width="6" height="12" rx="2" {...common}/></Svg>;
   }
+  if (name === 'more') {
+    return <Svg width={size} height={size} viewBox="0 0 32 32"><Circle cx="9" cy="16" r="2.3" fill={color}/><Circle cx="16" cy="16" r="2.3" fill={color}/><Circle cx="23" cy="16" r="2.3" fill={color}/></Svg>;
+  }
   if (name === 'home') {
     return <Svg width={size} height={size} viewBox="0 0 32 32"><Path d="M5 15 16 6l11 9v12H9V16" fill={filled ? '#FFD85A' : 'none'} stroke={color} strokeWidth={2.4}/><Path d="M20 27v-8h-8v8" {...common}/></Svg>;
   }

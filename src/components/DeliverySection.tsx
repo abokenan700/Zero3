@@ -8,6 +8,13 @@ import { CategoryTabs } from './CategoryTabs';
 interface DeliverySectionProps {
   placeholder: string;
   tabs: CategoryTab[];
+  stuck?: boolean;
+}
+
+export const DeliverySection = ({ placeholder, tabs, stuck = false }: DeliverySectionProps) => (
+  <View style={[styles.wrap, stuck ? styles.stuck : styles.defaultState]}>
+    <SearchBar placeholder={placeholder} />
+    <CategoryTabs tabs={tabs} tone={stuck ? 'dark' : 'light'} />
   sticky?: boolean;
 }
 
@@ -20,6 +27,16 @@ export const DeliverySection = ({ placeholder, tabs, sticky = false }: DeliveryS
 
 const styles = StyleSheet.create({
   wrap: {
+    paddingTop: 0,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: 'rgba(0,0,0,0.15)',
+    zIndex: 4,
+  },
+  defaultState: {
+    backgroundColor: '#724202',
+    paddingBottom: 0,
+  },
+  stuck: {
     backgroundColor: 'transparent',
     paddingTop: 0,
     borderBottomWidth: StyleSheet.hairlineWidth,
