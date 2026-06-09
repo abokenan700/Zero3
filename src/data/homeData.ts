@@ -223,6 +223,7 @@ export const homeData: HomeData = {
         product('mccain-fries', 'McCain French Fries', '420 g', '₹120', 'instant'),
         product('kissan-spread', 'Kissan Fresh Tomato Ketchup', '450 g', '₹105', 'sauces'),
       ],
+      products: [],
     },
   ],
   bottomNavigation: [

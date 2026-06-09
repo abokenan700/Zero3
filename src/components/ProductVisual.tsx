@@ -52,6 +52,16 @@ export const ProductVisual = ({ asset, size = 'category' }: ProductVisualProps) 
           <Text style={styles.bannerText}>Order now & enjoy FREE delivery</Text>
         </View>
         <Text style={[styles.shoppingBag, styles.rightBag]}>🛍️</Text>
+export const ProductVisual = ({ asset, size = 'category' }: ProductVisualProps) => {
+  if (size === 'banner') {
+    return (
+      <View style={[styles.banner, { backgroundColor: asset.dominantColor }]}> 
+        <View style={styles.bagLeft}><Text style={styles.bagEmoji}>🛍️</Text></View>
+        <View style={styles.bannerCopy}>
+          <Text style={styles.welcome}>{asset.label}</Text>
+          <Text style={styles.bannerText}>Order now & enjoy FREE delivery</Text>
+        </View>
+        <View style={styles.bagRight}><Text style={styles.bagEmoji}>🛍️</Text></View>
       </View>
     );
   }
@@ -85,6 +95,14 @@ export const ProductVisual = ({ asset, size = 'category' }: ProductVisualProps) 
           ))}
         </View>
       )}
+  const productMode = size === 'product';
+  return (
+    <View style={[styles.visual, productMode ? styles.productVisual : styles.categoryVisual, { backgroundColor: asset.dominantColor }]}> 
+      <View style={[styles.shadowBlob, { backgroundColor: asset.accentColor }]} />
+      <View style={styles.packRow}>
+        <View style={[styles.pack, styles.packTall, { backgroundColor: asset.accentColor }]}><Text style={styles.packText}>{asset.label.split(' ')[0]}</Text></View>
+        <View style={[styles.pack, styles.packShort]}><Text style={styles.packText}>{asset.label.split(' ').slice(1, 3).join(' ')}</Text></View>
+      </View>
     </View>
   );
 };
@@ -111,6 +129,13 @@ const styles = StyleSheet.create({
     height: 12,
     borderRadius: 12,
     backgroundColor: 'rgba(0,0,0,0.08)',
+  shadowBlob: {
+    position: 'absolute',
+    bottom: 18,
+    width: '70%',
+    height: 18,
+    borderRadius: 20,
+    opacity: 0.75,
   },
   packRow: {
     flexDirection: 'row',
@@ -127,6 +152,14 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     borderWidth: 1,
     borderColor: 'rgba(0,0,0,0.08)',
+    gap: 5,
+  },
+  pack: {
+    width: 42,
+    borderRadius: 6,
+    backgroundColor: colors.white,
+    borderWidth: 1,
+    borderColor: 'rgba(0,0,0,0.06)',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 2,
@@ -181,6 +214,18 @@ const styles = StyleSheet.create({
     fontSize: 30,
     marginHorizontal: -1,
   },
+  packTall: {
+    height: 58,
+  },
+  packShort: {
+    height: 45,
+  },
+  packText: {
+    fontSize: 7,
+    fontWeight: '800',
+    color: colors.text,
+    textAlign: 'center',
+  },
   banner: {
     height: 112,
     flexDirection: 'row',
@@ -198,6 +243,7 @@ const styles = StyleSheet.create({
     height: 210,
     borderRadius: 160,
     backgroundColor: 'rgba(255,208,87,0.20)',
+    paddingHorizontal: 8,
   },
   bannerCopy: {
     alignItems: 'center',
@@ -228,4 +274,7 @@ const styles = StyleSheet.create({
   },
   leftBag: { transform: [{ rotate: '-10deg' }], marginLeft: -8 },
   rightBag: { transform: [{ rotate: '10deg' }], marginRight: -8 },
+  bagLeft: { transform: [{ rotate: '-8deg' }], marginLeft: -8 },
+  bagRight: { transform: [{ rotate: '8deg' }], marginRight: -8 },
+  bagEmoji: { fontSize: 52 },
 });

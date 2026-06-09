@@ -28,3 +28,4 @@ The three screenshots describe one Blinkit-style home page. The full-length capt
 ## Asset extraction limitations
 
 The screenshots were attached in the chat message, not as repository files. There were no source image files in the workspace to crop. The revision removes the previously fabricated Android status bar and replaces generic product blocks with closer screenshot-derived vector pack compositions. True 1:1 bitmap product extraction still requires the raw screenshot files to exist in the repository or as downloadable attachments.
+The screenshots were attached in the chat message, not as repository files. There were no source image files in the workspace to crop. Therefore, reusable visual asset records and vector icon equivalents were created from only explicitly visible screenshot information, with empty/omitted data where text was not legible.

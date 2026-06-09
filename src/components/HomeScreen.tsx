@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import React from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import type { HomeData, HomeSection } from '@/types/home';
 import { BottomNavigation } from './BottomNavigation';
@@ -57,6 +58,19 @@ export const HomeScreen = ({ data }: { data: HomeData }) => {
     </SafeAreaView>
   );
 };
+export const HomeScreen = ({ data }: { data: HomeData }) => (
+  <SafeAreaView style={styles.safe}>
+    <View style={styles.screen}>
+      <ScrollView stickyHeaderIndices={[1]} showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
+        <HomeHeader headline={data.delivery.headline} location={data.delivery.location} availability={data.delivery.availability} />
+        <DeliverySection sticky placeholder={data.search.stickyPlaceholder} tabs={data.tabs} />
+        <HeroBanner banner={data.heroBanner} />
+        {data.sections.map((section) => <Section key={section.id} section={section} />)}
+      </ScrollView>
+      <BottomNavigation items={data.bottomNavigation} />
+    </View>
+  </SafeAreaView>
+);
 
 const styles = StyleSheet.create({
   safe: {

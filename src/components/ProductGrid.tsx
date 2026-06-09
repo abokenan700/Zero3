@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     paddingHorizontal: 8,
     rowGap: 16,
+    rowGap: 18,
   },
   categoryItem: {
     paddingHorizontal: 4,
@@ -48,6 +49,9 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 20,
     minHeight: 40,
+    fontSize: 16,
+    lineHeight: 21,
+    minHeight: 42,
     textAlign: 'center',
     fontWeight: '800',
     color: '#292A2E',
@@ -61,6 +65,10 @@ const styles = StyleSheet.create({
   },
   bestCard: {
     width: '31.6%',
+    gap: 12,
+  },
+  bestCard: {
+    width: '30.9%',
     backgroundColor: '#F2F3F8',
     borderRadius: 16,
     overflow: 'hidden',
