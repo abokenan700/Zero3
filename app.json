@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Zero3 Blinkit Home",
+    "slug": "zero3-blinkit-home",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": ["**/*"],
+    "ios": { "supportsTablet": true },
+    "android": { "adaptiveIcon": { "backgroundColor": "#ffffff" } },
+    "web": { "bundler": "metro" }
+  }
+}

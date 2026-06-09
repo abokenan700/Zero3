@@ -1,0 +1,19 @@
+{
+  "source": "Chat-attached screenshots of one Blinkit home page",
+  "note": "The raw screenshot files were not present in the repository, so icons are recreated as reusable vector equivalents in src/components/Icon.tsx and documented here.",
+  "icons": [
+    "search",
+    "microphone",
+    "bag/all",
+    "vacations/beach umbrella",
+    "electronics/headphones",
+    "beauty/cosmetics",
+    "pharmacy/medicine",
+    "home",
+    "order again basket",
+    "categories grid",
+    "print/printer",
+    "wallet",
+    "profile"
+  ]
+}
